@@ -36,7 +36,7 @@ An **enterprise-grade cloud-native automation setup** featuring:
 ## 📋 Table of Contents
 
 - [🎯 Project Overview](#-project-overview)
-- [🏗️ Architecture](#architecture)
+- [🏗️ Architecture](#-architecture)
 - [🧰 Technology Stack](#-technology-stack)
 - [✨ Key Features](#-key-features)
 - [🚀 Quick Start](#-quick-start)
@@ -303,7 +303,9 @@ docker run -d --name app-container -p 80:3000 elonerajeev/infra-app:latest
 
 ## 📈 Grafana Dashboard
 
-![Grafana Dashboard](monitoring/dashboards/grafana-dashboard.png)
+![Grafana Dashboard](monitoring/dashboards/grafana-dashboard1.png)
+
+![Grafana Dashboard](monitoring/dashboards/grafana-dashboard2.png)
 
 ## 📊 Prometheus Metrics
 
@@ -358,7 +360,7 @@ Response: Prometheus-formatted metrics
 
 <div align="center">
 
-<img src="monitoring/dashboards/my-image1.png" width="100" height="100" style="border-radius: 50%;">
+<img src="monitoring/dashboards/my-image.png" width="100" height="100" style="border-radius: 50%;">
 
 **Sudarshan Gawande**  
 *DevOps Engineer | Cloud Enthusiast | Automation Specialist*
