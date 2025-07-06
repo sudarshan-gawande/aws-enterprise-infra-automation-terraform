@@ -191,6 +191,26 @@ git push origin main
 
 ---
 
+## ⚙️ Terraform Execution & Output
+
+This project provisions infrastructure using **Terraform's modular architecture**, showcasing reusable, production-ready configurations for AWS resources like **VPC**, **EC2**, and **ALB**.
+
+> 📦 Output Modules: `vpc_id`, `ec2_public_ip`, `alb_dns` — rendered automatically post `terraform apply`.
+
+### 📜 Execution Snapshot
+
+![Terraform Plan Output](monitoring/dashboards/1.png)  
+*Detailed plan displaying infrastructure to be created via Terraform*
+
+![Terraform Branded CLI Output](monitoring/dashboards/2.png)  
+*Summary using `project_info` output — ideal for audits*
+
+![Terraform Final Outputs](monitoring/dashboards/3.png)  
+*Captured final values: EC2 IP, VPC ID, and ALB DNS — immediately usable post-deploy*
+
+---
+
+
 ## 🔄 CI/CD Pipeline
 
 ### Workflow Overview In Short (Not Complete Script)
@@ -303,9 +323,18 @@ docker run -d --name app-container -p 80:3000 elonerajeev/infra-app:latest
 
 ## 📈 Grafana Dashboard
 
-![Grafana Dashboard](monitoring/dashboards/grafana-dashboard1.png)
+This project integrates **Grafana + Prometheus** to monitor EC2 system metrics using the official **Node Exporter Full Dashboard (ID: 1860)**.
 
-![Grafana Dashboard](monitoring/dashboards/grafana-dashboard2.png)
+> 🔍 Dashboard Link: [Node Exporter Full - Grafana ID 1860](https://grafana.com/grafana/dashboards/1860-node-exporter-full/)
+
+### 🖥️ Dashboard Preview
+
+![Grafana Dashboard - CPU, Memory, Disk](monitoring/dashboards/grafana-dashboard1.png)
+*Real-time insights into EC2 instance performance*
+
+![Grafana Dashboard - Network, Uptime, File System](monitoring/dashboards/grafana-dashboard2.png)
+*Comprehensive view of system metrics via Node Exporter*
+
 
 ## 📊 Prometheus Metrics
 
