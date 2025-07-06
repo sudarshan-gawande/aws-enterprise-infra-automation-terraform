@@ -28,7 +28,7 @@ An **enterprise-grade cloud-native automation setup** featuring:
 - ✅ Dockerized Node.js microservice
 - ✅ End-to-end monitoring with Prometheus & Grafana
 
-🔗 [🔥 Live Demo](http://13.203.59.30) • [📖 Documentation](#-table-of-contents) • [🛠️ Quick Start](#-quick-start) • [💼 Portfolio](https://sudarshangawande.com)
+🔗 [🔥 Live Demo](http://13.202.190.55) • [📖 Documentation](#-table-of-contents) • [🛠️ Quick Start](#-quick-start) • [💼 Portfolio](https://sudarshangawande.com)
 
 ---
 
@@ -282,9 +282,9 @@ CMD ["node", "index.js"]
 ```bash
 #!/bin/bash
 # Deployed via GitHub Actions
-docker pull elonerajeev/infra-app:latest
+docker pull sudarshangawande/infra-app:latest
 docker stop app-container || true
-docker run -d --name app-container -p 80:3000 elonerajeev/infra-app:latest
+docker run -d --name app-container -p 80:3000 sudarshangawande/infra-app:latest
 ```
 
 ---

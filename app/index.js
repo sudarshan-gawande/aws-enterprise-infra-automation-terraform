@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 // API route (you can add more routes like this)
 app.get("/api/hello", (req, res) => {
   res.json({ 
-    message: "🚀 Hello from Dockerized Node.js App! by @Elone.rajeev",
+    message: "🚀 Hello from Dockerized Node.js App! by @Sudarshan Gawande",
     timestamp: new Date().toISOString()
   });
 });
