@@ -1,0 +1,52 @@
+# Install Prometheus
+useradd --no-create-home --shell /bin/false prometheus
+mkdir /etc/prometheus /var/lib/prometheus
+chown -R prometheus:prometheus /etc/prometheus /var/lib/prometheus
+cd /tmp
+wget https://github.com/prometheus/prometheus/releases/download/v2.51.2/prometheus-2.51.2.linux-amd64.tar.gz
+tar xvf prometheus-2.51.2.linux-amd64.tar.gz
+cp prometheus-2.51.2.linux-amd64/prometheus /usr/local/bin/
+cp prometheus-2.51.2.linux-amd64/promtool /usr/local/bin/
+chown prometheus:prometheus /usr/local/bin/prometheus /usr/local/bin/promtool
+cp -r prometheus-2.51.2.linux-amd64/consoles /etc/prometheus
+cp -r prometheus-2.51.2.linux-amd64/console_libraries /etc/prometheus
+chown -R prometheus:prometheus /etc/prometheus
+
+cat <<PROMEOF > /etc/prometheus/prometheus.yml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'node-app'
+    static_configs:
+      - targets: ['localhost:3000']
+  - job_name: 'node_exporter'
+    static_configs:
+      - targets: ['localhost:9100']
+PROMEOF
+
+chown prometheus:prometheus /etc/prometheus/prometheus.yml
+
+cat <<SERVICEEOF > /etc/systemd/system/prometheus.service
+[Unit]
+Description=Prometheus
+After=network.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/usr/local/bin/prometheus \\
+  --config.file=/etc/prometheus/prometheus.yml \\
+  --storage.tsdb.path=/var/lib/prometheus \\
+  --web.console.templates=/etc/prometheus/consoles \\
+  --web.console.libraries=/etc/prometheus/console_libraries
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+SERVICEEOF
+
+systemctl daemon-reload
+systemctl enable prometheus
+systemctl start prometheus

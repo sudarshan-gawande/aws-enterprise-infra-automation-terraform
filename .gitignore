@@ -1,0 +1,54 @@
+# -------------------------------------------------------------
+# 📁 .gitignore — Terraform + Docker + DevOps Project
+# 👨‍💻 Maintained by: Sudarshan Gawande
+# 🌐 Portfolio: https://sudarshangawande.com
+# 🐙 GitHub: https://github.com/sudarshan-gawande
+# -------------------------------------------------------------
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+.terraform/
+crash.log
+terraform.tfvars
+*.lock.hcl
+override.tf
+override.tf.json
+terraform.tfplan
+
+# Docker
+**/node_modules/
+**/__pycache__/
+*.log
+*.out
+*.pid
+docker-compose.override.yml
+
+# VS Code & IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Jenkins & CI/CD
+ec2_key.pem
+*.bak
+*.tmp
+
+# Secrets
+.env
+.env.*
+secret_template.json
+
+# Logs
+logs/
+*.log
+nohup.out
+
+# GitHub Actions & CI/CD
+.github/workflows/*.secrets
+.github/workflows/*.env
+coverage/
