@@ -1,0 +1,31 @@
+# =================================================================
+# Terraform State & Caching Files - DO NOT COMMIT
+# Maintained by: Sudarshan Gawande
+# Portfolio     : https://sudarshangawande.com
+# GitHub        : https://github.com/sudarshan-gawande
+# LinkedIn      : https://www.linkedin.com/in/sudarshangawande
+# =================================================================
+
+# Local .terraform directory
+.terraform/
+
+# Terraform state files
+*.tfstate
+*.tfstate.backup
+
+# Crash log (if Terraform crashes)
+crash.log
+
+# Sensitive variable files
+terraform.tfvars
+terraform.auto.tfvars
+
+# Terraform plan files
+terraform.tfplan
+
+# Terraform lock file
+*.lock.hcl
+
+# Override files (used for manual customization, should not be versioned)
+override.tf
+override.tf.json
