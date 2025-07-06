@@ -1,0 +1,33 @@
+# =============================================================
+# 🐳 Development Dockerfile — Node.js App with Hot Reloading
+# 👨‍💻 Maintained by: Sudarshan Gawande
+# 🌐 Portfolio: https://sudarshangawande.com
+# 🐙 GitHub: https://github.com/sudarshan-gawande
+# =============================================================
+
+# Base image
+FROM node:18-alpine
+
+# Set working directory inside the container
+WORKDIR /app
+
+# Install development tools (e.g., git)
+RUN apk add --no-cache git
+
+# Copy package definition files
+COPY package*.json ./
+
+# Install all dependencies (including devDependencies)
+RUN npm install
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose development port
+EXPOSE 3000
+
+# Enable volume mount for hot-reloading in local dev
+VOLUME ["/app"]
+
+# Start app using nodemon for hot reloading
+CMD ["npx", "nodemon", "app.js"]
